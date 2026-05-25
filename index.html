@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"> // pasamos el idioma a español
+<html lang="es"> 
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 
 <body>
     <main class="contenedor-principal">
-        <section class="formulario-inscripcion">
+        <section class="tarjeta-formulario">
             <header class="header-formulario">
                 <h1>Formulario de inscripción</h1>
                 <p>
@@ -37,12 +37,13 @@
                     <div class="grupo-formulario">
                         <label for="email">Email *</label>
                         <input type="email" id="email" name="email" placeholder="Ej: juan@ejemplo.com" required>
-                    <small>Usaremos este correo para contactarte.</small>
+                        <small>Usaremos este correo para contactarte.</small>
                     </div>
 
                     <div class="grupo-formulario">
                         <label for="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 345 123 456" autoComplete="tel">
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 345 123 456"
+                            autoComplete="tel">
                     </div>
 
 
@@ -62,19 +63,66 @@
                     </div>
 
                     <div class="grupo-formulario">
-                        <span  clas="etiqueta-grupo"> Turno preferido * </span>
+                        <span clas="etiqueta-grupo"> Turno preferido * </span>
 
                         <div class="opciones-linea">
-
+                            <div class="opcion">
+                                <input type="radio" id="turno-manana" name="turno" value="mañana" required>
+                                <label for="turno-manana">Mañana</label>
+                            </div>
+                            <div class="opcion">
+                                <input type="radio" id="turno-tarde" name="turno" value="tarde" required>
+                                <label for="turno-tarde">Tarde</label>
+                            </div>
+                            <div class="opcion">
+                                <input type="radio" id="turno-noche" name="turno" value="noche" required>
+                                <label for="turno-noche">Noche</label>
+                            </div>
                         </div>
-                        
-
+                    </div>
+                    <div class="grupo-formulario">
+                        <span class="etiqueta-grupo"> temas de interés * </span>
+                        <div class="opciones-columna">
+                            <div class="opcion">
+                                <input type="checkbox" id="tema-html" name="temas[]" value="html">
+                                <label for="tema-html">HTML</label>
+                            </div>
+                            <div class="opcion">
+                                <input type="checkbox" id="tema-css" name="temas[]" value="css">
+                                <label for="tema-css">CSS</label>
+                            </div>
+                            <div class="opcion">
+                                <input type="checkbox" id="tema-js" name="temas[]" value="javascript">
+                                <label for="tema-js">JavaScript</label>
+                            </div>
+                            <div class="opcion">
+                                <input type="checkbox" id="tema-react" name="temas[]" value="react">
+                                <label for="tema-react">React</label>
+                            </div>
+                        </div>
                     </div>
 
-
                 </fieldset>
+                <fieldset>
+                    <legend>Comentarios adicionales</legend>
 
-                <button type="submit">Enviar inscripción</button>
+                    <div class="grupo-formulario">
+                        <label for="comentarios">¿Tienes alguna pregunta o comentario?</label>
+                        <textarea id="comentarios" name="comentarios" rows="5" maxlength="300" placeholder="Escribe aquí tus comentarios..."></textarea>
+                    </div>
+                </fieldset>
+                <div class="grupo-formulario grupo condiciones">
+                    <div class="opcion">
+                        <input type="checkbox" id="condiciones" name="condiciones" required>
+                        <label for="condiciones">Acepto que mis datos sean utilizados para gestionar esta inscripción.</label>
+
+                    </div>
+                </div>
+                <div class="acciones-formilario">   
+                    <button type="reset" class="boton boton-secundario">Limpiar formulario</button>
+                    <button type="submit">Enviar inscripción</button>
+                </div>
+              
 
             </form>
 

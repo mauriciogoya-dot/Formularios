@@ -19,18 +19,24 @@
                     Los campos con * son obligatorios.
                 </p>
             </header>
-
-            <form action="#" method="POST" class="formulario-inscripcion">
-                
+                <!-- <form> Es la etiqueta que define el inicio de un formulario web. Todo lo que esté adentro (campos, botones, opciones) formará parte de los datos que se enviarán.  -->
+            <form action="#" method="POST" class="formulario-inscripcion"> 
+                <!-- action="#": Especifica a dónde se envían los datos cuando el usuario hace clic en el botón de enviar. El # es un marcador de posición temporal (indica que los datos se envían a la misma página actual). En un proyecto real, acá iría la URL de un servidor (un archivo PHP, Python, NodeJS, etc.) que procese la información. -->
+                <!-- method="POST": Define el método HTTP que se usa para enviar los datos. POST se utiliza para enviar información de forma segura dentro del cuerpo de la petición (oculta de la barra de direcciones del navegador), lo cual es ideal para formularios de inscripción, contraseñas o datos personales. -->
+                 <!-- class="formulario-inscripcion": Es un identificador que usamos para vincular este formulario con el archivo .css y poder darle los estilos visuales (como el espaciado interno con gap). -->
                 <fieldset>
+                    <!-- <fieldset>: Se usa para agrupar lógicamente campos relacionados dentro de un formulario largo. Visualmente suele dibujar un recuadro suave alrededor de los campos que contiene. Ayuda muchísimo a la experiencia del usuario para que el formulario no se sienta una lista infinita de preguntas, separándolo por temas (como "Datos personales" por un lado y "Datos del curso" por el otro). -->
                     <legend>Datos personales</legend>
-                    
+                    <!-- <legend>: Es el título de ese grupo. Debe ir inmediatamente después de abrir el <fieldset>. Además de ser la etiqueta visible del recuadro, es fundamental para la accesibilidad: los lectores de pantalla para personas con discapacidad visual leen el legend antes de cada campo para que el usuario sepa en qué contexto está respondiendo. -->
                     <div class="grupo-formulario">
                         <label for="nombre">Nombre completo *</label>
+                        <!-- <label for="nombre">: Representa la etiqueta o texto descriptivo del campo. El atributo for="nombre" es clave: se conecta directamente con el id="nombre" del <input>. Esto hace que si un usuario hace clic en la palabra "Nombre completo *", el cursor se posicione automáticamente adentro de la caja de texto, mejorando la usabilidad. -->
                         <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required minlength="3" maxlength="60">
+                        <!-- <input>: Es el elemento interactivo donde el usuario escribe. Dependiendo de su atributo type (como text, email o number), el navegador adaptará el teclado en celulares y aplicará validaciones automáticas. -->
                     </div>
 
                     <div class="grupo-formulario">
+                        <!-- <div class="grupo-formulario">: Es un contenedor genérico que usamos como "caja". En nuestro CSS le aplicamos display: flex; flex-direction: column;, lo que obliga a que el <label> se coloque arriba y el <input> se acomode justo abajo de manera ordenada. -->
                         <label for="edad">Edad</label>
                         <input type="number" id="edad" name="edad" placeholder="Ej: 25" required min="16" max="99">
                     </div>
@@ -62,6 +68,8 @@
 
                     <div class="grupo-formulario">
                         <span class="etiqueta-grupo">Turno preferido *</span>
+                        <!-- <span>: Es una etiqueta contenedora de texto en línea (inline). A diferencia de un párrafo (<p>) o un título (<h1>), el <span> no tiene un significado semántico especial para el navegador ni aporta saltos de línea automáticos. 
+                            ¿Para qué lo usamos en el formulario? Lo usamos en secciones como los campos de Radio (Turnos) o Checkboxes (Temas) para escribir el título del grupo (ej: *"Turno preferido "). Al usar un <span> en lugar de un <label>, evitamos confundir a los lectores de pantalla, ya que un <label> debe conectarse a un único input específico, mientras que el <span> acá simplemente actúa como un encabezado genérico para todo el grupo de opciones.-->
                         <div class="opciones-linea">
                             <div class="opcion">
                                 <input type="radio" id="turno-manana" name="turno" value="mañana" required>

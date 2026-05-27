@@ -11,22 +11,23 @@
 <body>
     <main class="contenedor-principal">
         <section class="tarjeta-formulario">
+            
             <header class="header-formulario">
                 <h1>Formulario de inscripción</h1>
                 <p>
                     Completa tus datos para inscribirte al curso de desarrollo web.
-                    los campos con * son obligatorios.
+                    Los campos con * son obligatorios.
                 </p>
-
             </header>
 
             <form action="#" method="POST" class="formulario-inscripcion">
+                
                 <fieldset>
                     <legend>Datos personales</legend>
+                    
                     <div class="grupo-formulario">
                         <label for="nombre">Nombre completo *</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required minlength="3"
-                            maxlength="60">
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required minlength="3" maxlength="60">
                     </div>
 
                     <div class="grupo-formulario">
@@ -37,16 +38,13 @@
                     <div class="grupo-formulario">
                         <label for="email">Email *</label>
                         <input type="email" id="email" name="email" placeholder="Ej: juan@ejemplo.com" required>
-                        <small>Usaremos este correo para contactarte.</small>
+                        <small class="texto-ayuda">Usaremos este correo para contactarte.</small>
                     </div>
 
                     <div class="grupo-formulario">
                         <label for="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 345 123 456"
-                            autoComplete="tel">
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 345 123 456" autoComplete="tel">
                     </div>
-
-
                 </fieldset>
 
                 <fieldset>
@@ -63,8 +61,7 @@
                     </div>
 
                     <div class="grupo-formulario">
-                        <span clas="etiqueta-grupo"> Turno preferido * </span>
-
+                        <span class="etiqueta-grupo">Turno preferido *</span>
                         <div class="opciones-linea">
                             <div class="opcion">
                                 <input type="radio" id="turno-manana" name="turno" value="mañana" required>
@@ -80,8 +77,9 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="grupo-formulario">
-                        <span class="etiqueta-grupo"> temas de interés * </span>
+                        <span class="etiqueta-grupo">Temas de interés *</span>
                         <div class="opciones-columna">
                             <div class="opcion">
                                 <input type="checkbox" id="tema-html" name="temas[]" value="html">
@@ -101,35 +99,29 @@
                             </div>
                         </div>
                     </div>
-
                 </fieldset>
+
                 <fieldset>
                     <legend>Comentarios adicionales</legend>
-
                     <div class="grupo-formulario">
                         <label for="comentarios">¿Tienes alguna pregunta o comentario?</label>
                         <textarea id="comentarios" name="comentarios" rows="5" maxlength="300" placeholder="Escribe aquí tus comentarios..."></textarea>
                     </div>
                 </fieldset>
-                <div class="grupo-formulario grupo condiciones">
+
+                <div class="grupo-formulario condiciones">
                     <div class="opcion">
                         <input type="checkbox" id="condiciones" name="condiciones" required>
                         <label for="condiciones">Acepto que mis datos sean utilizados para gestionar esta inscripción.</label>
-
                     </div>
                 </div>
-                <div class="acciones-formilario">   
+
+                <div class="acciones-formulario">   
                     <button type="reset" class="boton boton-secundario">Limpiar formulario</button>
-                    <button type="submit">Enviar inscripción</button>
+                    <button type="submit" class="boton boton-primario">Enviar inscripción</button>
                 </div>
-              
-
             </form>
-
         </section>
     </main>
-
-
 </body>
-
 </html>

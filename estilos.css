@@ -1,80 +1,103 @@
-*{
+/* Reseteo básico para que los márgenes y paddings se calculen de forma predecible */
+* {
     box-sizing: border-box;
 }
+
+/* Estilos globales de la página */
 body {
-margin: 0;
-font-family: Arial, Helvetica, sans-serif;
-background-color: #eef2f7;
-color: #333;
-line-height: 1.5;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef2f7; /* Gris azulado claro de fondo */
+    color: #333;               /* Gris oscuro para el texto principal */
+    line-height: 1.5;
 }
+
+/* Contenedor principal que centra la tarjeta vertical y horizontalmente */
 .contenedor-principal {
     width: 100%;
     min-height: 100vh;
     padding: 2rem 1rem;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; /* Permite scroll cómodo si el diseño supera la pantalla */
 }
+
+/* Tarjeta contenedora blanca donde vive el formulario */
 .tarjeta-formulario {
     background-color: #ffffff;
     padding: 2rem;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(15,23,42,0.12);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12); /* Sombra suave para dar profundidad */
     max-width: 850px;
     width: 100%;
 }
+
+/* Estilos del encabezado */
 .header-formulario {
     text-align: center;
     margin-bottom: 2rem;
 }
+
 .header-formulario h1 {
     margin: 0 0 0.5rem 0;
     font-size: 2rem;
-    color: #0f172a;
+    color: #0f172a; /* Azul pizarra muy oscuro */
 }
+
 .header-formulario p {
     margin: 0;
-    color: #475569;
+    color: #475569; /* Gris intermedio */
 }
-.formulario {
+
+/* Estructura del formulario y separación de los fieldsets */
+.formulario-inscripcion {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.8rem; /* Espaciado uniforme entre secciones */
 }
+
+/* Agrupadores de secciones (Fieldsets) */
 fieldset {
     border: 1px solid #cbd5e1;
     margin: 0;
     padding: 1.5rem;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Espaciado entre campos dentro del fieldset */
 }
+
+/* Títulos de cada sección */
 legend {
     padding: 0 0.5rem;
     font-weight: bold;
     color: #0f172a;
 }
 
-
-.grupo-campos {
+/* Contenedor individual de cada campo (Label + Input) */
+.grupo-formulario {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    margin-bottom: 1rem;
 }
 
-.grupo-campos:last-child {
-    margin-bottom: 0;
- }
+/* Estilos para las etiquetas de los campos */
 label,
-.etiqueta-campo {
+.etiqueta-grupo {
     font-weight: 600;
     color: #334155;
-} 
-input,
+    font-size: 0.95rem;
+}
+
+/* Estilos comunes para cajas de texto, selectores y textareas */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
 select,
 textarea {
     width: 100%;
-    padding: 0.3rem 0.9rem;
+    padding: 0.6rem 0.9rem; /* Un poco más de padding vertical para mejor usabilidad */
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     font-size: 1rem;
@@ -84,31 +107,141 @@ textarea {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Evita que el textarea se deforme horizontalmente */
 textarea {
     resize: vertical;
- }
- input::placeholder,
- textarea::placeholder {
+}
+
+/* Color del texto del marcador de posición (Placeholder) */
+input::placeholder,
+textarea::placeholder {
     color: #94a3b8;
- }
+}
+
+/* Efecto de enfoque (Focus) cuando el usuario hace clic en un campo */
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #3b82f6;
+    border-color: #3b82f6; /* Azul brillante */
     outline: none;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
-input::invalid,
-select::invalid,
-textarea::invalid {
-    border-color: #ef4444;
+
+/* --- ESTADOS DE VALIDACIÓN --- */
+
+/* Cuando el campo tiene datos pero son inválidos (ej. email mal escrito) */
+input:focus:invalid,
+select:focus:invalid,
+textarea:focus:invalid {
+    border-color: #ef4444; /* Rojo */
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
 }
+
+/* Cuando el campo obligatorio se completó correctamente */
 input:valid,
 select:valid,
 textarea:valid {
-    border-color: #16a34a;
+    border-color: #16a34a; /* Verde */
 }
-small {
-    color: #ef4444;
-    font-size: 0.875rem;
+
+/* Evitamos que los checkboxes y radios se pinten de verde/rojo entero de forma molesta */
+input[type="checkbox"]:valid,
+input[type="radio"]:valid {
+    border-color: #cbd5e1;
+}
+
+/* Textos informativos o de ayuda debajo de los inputs */
+.texto-ayuda {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 0.1rem;
+}
+
+/* --- DISEÑO DE RADIOS Y CHECKBOXES --- */
+
+/* Contenedor horizontal para los turnos (Radio) */
+.opciones-linea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+/* Contenedor vertical para los temas (Checkbox) */
+.opciones-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.2rem;
+}
+
+/* Alineación interna de cada opción (Input al lado de su texto) */
+.opcion {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Ajuste de tamaño para los inputs nativos de radio y checkbox */
+.opcion input[type="radio"],
+.opcion input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Reset del peso de la fuente para las etiquetas de cada opción */
+.opcion label {
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Margen específico para la sección de aceptar términos */
+.condiciones {
+    margin: 0.5rem 0;
+}
+
+/* --- SECCIÓN DE BOTONES --- */
+
+/* Contenedor inferior que alinea los botones a la derecha */
+.acciones-formulario {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Estilo base de los botones */
+.boton {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.boton:active {
+    transform: scale(0.98); /* Pequeño efecto de pulsación */
+}
+
+/* Botón Principal (Enviar) */
+.boton-primario {
+    background-color: #2563eb; /* Azul oscuro */
+    color: #ffffff;
+}
+
+.boton-primario:hover {
+    background-color: #1d4ed8;
+}
+
+/* Botón Secundario (Limpiar) */
+.boton-secundario {
+    background-color: #e2e8f0; /* Gris claro */
+    color: #475569;
+}
+
+.boton-secundario:hover {
+    background-color: #cbd5e1;
 }
